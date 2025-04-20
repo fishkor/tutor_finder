@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:urbanpro/app/routes/app_pages.dart';
+import 'package:urbanpro/app/data/app_colors.dart';
 
 import '../controllers/login_page_controller.dart';
 
@@ -14,7 +14,8 @@ class LoginPageView extends GetView<LoginPageController> {
         title: const Text('Login to your account'),
         // centerTitle: true,
       ),
-      backgroundColor: Colors.grey[200],
+      backgroundColor:
+          BACKGROUND_COLOR, // Set the background color of the Scaffold
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -23,69 +24,64 @@ class LoginPageView extends GetView<LoginPageController> {
             Padding(
               padding: const EdgeInsets.only(top: 70, bottom: 20),
               child: Text(
-                "Login to your account",
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                "Login ",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextFormField(
+                style: TextStyle(color: BLACK_COLOR),
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: "enter your email",
+                  hintStyle: TextStyle(color: GREY_COLOR),
 
-            InkWell(
-              onTap: () {
-                Get.offAllNamed(Routes.HOME_PAGE);
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 248, 195, 195),
-                  borderRadius: BorderRadius.circular(18),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 5,
-                      offset: Offset(0, 2),
-                    ),
-                  ],
-                ),
+                  prefixIcon: Icon(Icons.email_rounded, color: DARK_GREY_COLOR),
 
-                width: 200,
-                height: 37,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(Icons.email),
-                    SizedBox(width: 8),
-                    Text(
-                      "Login with email",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: GREY_COLOR, width: 1),
+                  ),
                 ),
               ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextFormField(
+                style: TextStyle(color: BLACK_COLOR),
+                keyboardType: TextInputType.visiblePassword,
+                decoration: InputDecoration(
+                  hintText: "enter your password",
+                  hintStyle: TextStyle(color: GREY_COLOR),
+                  prefixIcon: Icon(Icons.lock_rounded, color: DARK_GREY_COLOR),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: GREY_COLOR, width: 1),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
             Container(
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 248, 195, 195),
-                borderRadius: BorderRadius.circular(18),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 5,
-                    offset: Offset(0, 2),
+              width: double.infinity,
+              height: 50,
+              margin: EdgeInsets.symmetric(horizontal: 10),
+              child: ElevatedButton(
+                onPressed: () {
+                  // Handle login action
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: PRIMARY_COLOR,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                ],
-              ),
-
-              width: 200,
-              height: 37,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.email),
-                  SizedBox(width: 8),
-                  Text(
-                    "Login with email",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
+                ),
+                child: Text(
+                  "Login",
+                  style: TextStyle(fontSize: 16, color: WHITE_COLOR),
+                ),
               ),
             ),
           ],
