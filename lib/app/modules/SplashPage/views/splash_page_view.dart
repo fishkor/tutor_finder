@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
+import '../../../data/app_colors.dart';
 import '../controllers/splash_page_controller.dart';
 
 class SplashPageView extends GetView<SplashPageController> {
@@ -10,9 +11,13 @@ class SplashPageView extends GetView<SplashPageController> {
   Widget build(BuildContext context) {
     Get.put(SplashPageController());
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: const Center(
-        child: CircularProgressIndicator(color: Colors.white, strokeWidth: 3),
+      backgroundColor: BACKGROUND_COLOR,
+      body: Center(
+        child: FlutterLogo(
+          size: 100,
+          textColor: BLACK_COLOR,
+          style: FlutterLogoStyle.horizontal,
+        ),
       ),
     );
   }

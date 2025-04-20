@@ -3,121 +3,152 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:urbanpro/app/routes/app_pages.dart';
+import 'package:line_icons/line_icons.dart';
+import 'package:urbanpro/app/data/app_colors.dart';
+import 'package:urbanpro/app/modules/HomePage/widgets/demo_home.dart';
+import 'package:urbanpro/app/modules/HomePage/widgets/teacher_tile_card.dart';
 
+import '../../../data/app_const.dart';
 import '../controllers/home_page_controller.dart';
+import '../widgets/drawer_home.dart';
 
 class HomePageView extends GetView<HomePageController> {
   const HomePageView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(title: const Text('HomePageView'), centerTitle: true),
-      body: PageView(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/learning.png"),
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.5),
-                  BlendMode.darken,
-                ),
-              ),
-            ),
-            alignment: Alignment.topCenter,
-
-            child: Padding(
-              padding: const EdgeInsets.only(top: 70),
-              child: Text(
-                'UrbanPro',
-                style: TextStyle(fontSize: 50, color: Colors.white),
-              ),
-            ),
-          ),
-
-          Container(
-            //color: Colors.purple,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/backimage2.png"),
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.5),
-                  BlendMode.darken,
-                ),
-              ),
-            ),
-            child: Center(
-              // child:Icon(Icons.mail_outline),
-              child: Text(
-                'Respond to enqiries delivered to you',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-          Container(
-            // color: Colors.orange,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage("assets/images/backimage3.png"),
-                fit: BoxFit.cover,
-                colorFilter: ColorFilter.mode(
-                  Colors.black.withOpacity(0.5),
-                  BlendMode.darken,
-                ),
-              ),
-            ),
-            child: Center(
-              child: Text(
-                'Get Hired and grow your earnings',
-                style: TextStyle(
-                  fontSize: 22,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ),
-        ],
+      backgroundColor: BACKGROUND_COLOR,
+      appBar: AppBar(
+        title: Text(APP_NAME),
+        centerTitle: false,
+        backgroundColor: BACKGROUND_COLOR,
+        elevation: 0,
       ),
-      bottomSheet: Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-        ),
-        height: 60,
-
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      drawer: HomeDrawer(),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextButton(
-              onPressed: () {
-                Get.toNamed(Routes.LOGIN_PAGE);
-              },
-              child: Text(
-                "Login",
-                style: TextStyle(fontSize: 20, color: Colors.black),
+            SizedBox(height: 10),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: TextFormField(
+                style: TextStyle(color: BLACK_COLOR),
+                keyboardType: TextInputType.text,
+                decoration: InputDecoration(
+                  hintText: "What do you want to search?",
+                  hintStyle: TextStyle(color: GREY_COLOR),
+
+                  prefixIcon: Icon(Icons.search, color: DARK_GREY_COLOR),
+                  suffixIcon: Icon(LineIcons.filter, color: DARK_GREY_COLOR),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(10),
+                    borderSide: BorderSide(color: GREY_COLOR, width: 1),
+                  ),
+                ),
               ),
             ),
-            VerticalDivider(color: Colors.black, thickness: 2),
-            TextButton(
-              onPressed: () {
-                Get.toNamed(Routes.SINGUP_PAGE);
-              },
+            SizedBox(height: 24),
+            Padding(
+              padding: const EdgeInsets.only(left: 16),
               child: Text(
-                "Sing Up",
-                style: TextStyle(fontSize: 20, color: Colors.black),
+                "Experience UrbanPro Live Classes",
+                style: TextStyle(fontSize: 20),
               ),
             ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 10),
+              child: Text("English", style: TextStyle(fontSize: 18)),
+            ),
+            SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                spacing: 16,
+                children: [
+                  SizedBox(height: 12),
+
+                  TeacherTileCard(),
+                  TeacherTileCard(),
+                  TeacherTileCard(),
+                  SizedBox(height: 12),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 10),
+              child: Text("Chemistry", style: TextStyle(fontSize: 18)),
+            ),
+            SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                spacing: 16,
+                children: [
+                  SizedBox(height: 12),
+                  TeacherTileCard(),
+                  TeacherTileCard(),
+                  TeacherTileCard(),
+                  SizedBox(height: 12),
+                ],
+              ),
+            ),
+
+            Padding(
+              padding: const EdgeInsets.only(left: 16, top: 10),
+              child: Text("Mathematics", style: TextStyle(fontSize: 18)),
+            ),
+            SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                spacing: 16,
+                children: [
+                  SizedBox(height: 12),
+                  TeacherTileCard(),
+                  TeacherTileCard(),
+                  TeacherTileCard(),
+                  SizedBox(height: 12),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Center(
+              child: Text(
+                "How UrbanPro Works?",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+            ),
+
+            SizedBox(height: 5),
+            DemoHome(),
+            DemoHome(),
+            DemoHome(),
+            SizedBox(height: 30),
+            Center(
+              child: InkWell(
+                onTap: () {},
+                child: Container(
+                  height: 33,
+                  width: 150,
+                  decoration: BoxDecoration(
+                    color: PRIMARY_COLOR,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: Center(
+                    child: Text(
+                      "Get Started",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.white, fontSize: 17),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20),
           ],
         ),
       ),

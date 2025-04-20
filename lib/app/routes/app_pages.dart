@@ -4,6 +4,8 @@ import '../modules/HomePage/bindings/home_page_binding.dart';
 import '../modules/HomePage/views/home_page_view.dart';
 import '../modules/LoginPage/bindings/login_page_binding.dart';
 import '../modules/LoginPage/views/login_page_view.dart';
+import '../modules/OnBoardingPage/bindings/on_boarding_page_binding.dart';
+import '../modules/OnBoardingPage/views/on_boarding_page_view.dart';
 import '../modules/SingupPage/bindings/singup_page_binding.dart';
 import '../modules/SingupPage/views/singup_page_view.dart';
 import '../modules/SplashPage/bindings/splash_page_binding.dart';
@@ -38,6 +40,11 @@ class AppPages {
       name: _Paths.SINGUP_PAGE,
       page: () => const SingupPageView(),
       binding: SingupPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.ON_BOARDING_PAGE,
+      page: () => OnBoardingPageView(),
+      binding: OnBoardingPageBinding(),
     ),
   ];
 }
