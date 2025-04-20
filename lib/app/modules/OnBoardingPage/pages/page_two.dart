@@ -20,7 +20,7 @@ class PageTwo extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Find the right tutor for you",
+                  "Get the best learning experience",
                   style: GoogleFonts.varelaRound(
                     fontSize: 20,
                     color: BLACK_COLOR,
@@ -29,7 +29,7 @@ class PageTwo extends StatelessWidget {
                 ),
                 Padding(padding: EdgeInsets.only(top: 10)),
                 Text(
-                  "Search for tutors and trainers in your area. Get the best match for your learning needs.",
+                  "No matter what your learning style is, we have the right tutor for you.",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.varelaRound(
                     fontSize: 16,

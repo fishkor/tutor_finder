@@ -20,7 +20,7 @@ class PageThree extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Find the right tutor for you",
+                  "Explore a wide range of tutors",
                   style: GoogleFonts.varelaRound(
                     fontSize: 20,
                     color: BLACK_COLOR,
@@ -29,7 +29,7 @@ class PageThree extends StatelessWidget {
                 ),
                 Padding(padding: EdgeInsets.only(top: 10)),
                 Text(
-                  "Search for tutors and trainers in your area. Get the best match for your learning needs.",
+                  "Find the perfect tutor for your needs, whether it's for school, college, or competitive exams.",
                   textAlign: TextAlign.center,
                   style: GoogleFonts.varelaRound(
                     fontSize: 16,

@@ -118,37 +118,32 @@ class HomePageView extends GetView<HomePageController> {
             SizedBox(height: 20),
             Center(
               child: Text(
-                "How UrbanPro Works?",
+                "How $APP_NAME Works?",
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
 
             SizedBox(height: 5),
-            DemoHome(),
-            DemoHome(),
-            DemoHome(),
-            SizedBox(height: 30),
-            Center(
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  height: 33,
-                  width: 150,
-                  decoration: BoxDecoration(
-                    color: PRIMARY_COLOR,
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                  child: Center(
-                    child: Text(
-                      "Get Started",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white, fontSize: 17),
-                    ),
-                  ),
-                ),
-              ),
+            DemoHome(
+              icon: LineIcons.user,
+              title: "Find a tutor",
+              subtitle:
+                  "Search for tutors based on your requirements and preferences.",
             ),
-            SizedBox(height: 20),
+            DemoHome(
+              icon: LineIcons.calendar,
+              title: "Book a class",
+              subtitle:
+                  "Choose a time slot that works for you and book a class with the tutor.",
+            ),
+            DemoHome(
+              icon: LineIcons.video,
+              title: "Attend the class",
+              subtitle:
+                  "Join the class and start learning with your tutor in real-time.",
+            ),
+
+            SizedBox(height: 80),
           ],
         ),
       ),

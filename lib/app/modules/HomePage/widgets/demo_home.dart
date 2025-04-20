@@ -3,26 +3,29 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:line_icons/line_icons.dart';
 import 'package:urbanpro/app/data/app_colors.dart';
 
 class DemoHome extends StatelessWidget {
-  const DemoHome({super.key});
+  final IconData icon;
+  final String title;
+  final String subtitle;
+  const DemoHome({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.subtitle,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Container(
-        height: 200,
         width: Get.width - 40,
         margin: EdgeInsets.only(top: 20),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: WHITE_COLOR,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: Color.fromARGB(255, 185, 185, 185),
-            width: 1,
-          ),
+          border: Border.all(color: GREY_COLOR, width: 1),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -38,16 +41,20 @@ class DemoHome extends StatelessWidget {
                   // borderRadius: BorderRadius.circular(10),
                   shape: BoxShape.circle,
                 ),
-                child: Icon(LineIcons.calendar, color: Colors.white, size: 50),
+                child: Icon(icon, color: WHITE_COLOR, size: 50),
               ),
             ),
-            Text("Book a Demo Class", style: TextStyle(fontSize: 20)),
+            Text(title, style: TextStyle(fontSize: 20)),
             SizedBox(height: 5),
-            Text(
-              "Book a free demo class with a tutor. ",
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16, color: DARK_GREY_COLOR),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: Text(
+                subtitle,
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 16, color: DARK_GREY_COLOR),
+              ),
             ),
+            SizedBox(height: 16),
           ],
         ),
       ),
